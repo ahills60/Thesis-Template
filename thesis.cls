@@ -53,8 +53,12 @@
 \floatname{algorithm}{Algorithm}
 % \makeatletter
 \if@garamond
-	\usepackage[mathscr]{eucal}
-	\usepackage[urw-garamond]{mathdesign}
+	\IfFileExists{eucal.sty}
+	{\IfFileExists{mathdesign.sty}
+	{\usepackage[mathscr]{eucal}
+	\usepackage[urw-garamond]{mathdesign}}
+	{\message{Package mathdesign.sty was not found.}}}
+	{\message{Package eucal.sty was not found.}}
 \fi
 % \makeatother
 \RequirePackage[T1]{fontenc}
