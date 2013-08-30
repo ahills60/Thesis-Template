@@ -19,6 +19,7 @@
 % \makeatother
 \newcommand*{\department}[1]{\gdef\@department{#1}}
 \newcommand*{\university}[1]{\gdef\@university{#1}}
+\newcommand*{\dedication}[1]{\gdef\@dedication{#1}}
 \DeclareOption*{
 \PassOptionsToClass{\CurrentOption}{report}}
 
@@ -228,7 +229,7 @@
 \renewcommand{\sectionmark}[1]{\markright{\thesection.\ #1}}
 \fancyhead[RO,LE]{\bfseries\thepage}
 \fancyhead[LO]{\bfseries\leftmark}
-\fancyhead[RO]{\bfseries\rightmark}
+\fancyhead[RE]{\bfseries\rightmark}
 \renewcommand{\headrulewidth}{0.3pt}
 
 % Clear Header Style on the last empty odd page
@@ -237,7 +238,7 @@
 	\hbox{}
 	\thispagestyle{empty}
 	\newpage
-	\if@twocoloumn\hbox{}\newpage\fi\fi\fi}
+	\if@twocolumn\hbox{}\newpage\fi\fi\fi}
 
 % Redefine chapters
 \def\@chapter[#1]#2{\ifnum \c@secnumdepth >\m@ne
@@ -317,4 +318,25 @@
 		\vspace*{\stretch{2}}
 	\end{titlepage}
 }
+\def\startpreamble
+	{\pagenumbering{alph}
+	\setcounter{page}{0}
+	\maketitle
+	\newpage
+	\mbox{}
+	\thispagestyle{empty}
+	\clearpage
+	\thispagestyle{empty}
+	\vspace*{\stretch{1}}
+	\begin{center}
+		\huge{\@dedication{}}
+	\end{center}
+	\vspace*{\stretch{2}}
+	\cleardoublepage
+	\pagenumbering{roman} \setcounter{page}{1}
+	}
+\def\stoppreamble
+	{\cleardoublepage
+	\pagenumbering{arabic}
+	\setcounter{page}{1}}
 \makeatother
