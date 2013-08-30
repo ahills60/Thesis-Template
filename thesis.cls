@@ -13,6 +13,9 @@
 \newif\if@garamond
 \@garamondfalse
 \DeclareOption{garamond}{\@garamondtrue}
+\newif\if@palatino
+\@palatinofalse
+\DeclareOption{palatino}{\@palatinotrue}
 % \makeatother
 \newcommand*{\department}[1]{\gdef\@department{#1}}
 \newcommand*{\university}[1]{\gdef\@university{#1}}
@@ -59,7 +62,15 @@
 	\usepackage[urw-garamond]{mathdesign}}
 	{\message{Package mathdesign.sty was not found.}}}
 	{\message{Package eucal.sty was not found.}}
+\else
+	\if@palatino
+		\IfFileExists{mathpazo.sty}
+		{\usepackage[sc]{mathpazo}
+		\linespread{1.05}}
+		{\message{Package mathpazo.sty was not found.}}
+	\fi
 \fi
+
 % \makeatother
 \RequirePackage[T1]{fontenc}
 
