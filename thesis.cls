@@ -16,6 +16,9 @@
 \newif\if@palatino
 \@palatinofalse
 \DeclareOption{palatino}{\@palatinotrue}
+\newif\if@libertine
+\@libertinefalse
+\DeclareOption{libertine}{\@libertinetrue}
 % \makeatother
 \newcommand*{\department}[1]{\gdef\@department{#1}}
 \newcommand*{\university}[1]{\gdef\@university{#1}}
@@ -59,8 +62,10 @@
 \if@garamond
 	\IfFileExists{eucal.sty}
 	{\IfFileExists{mathdesign.sty}
+	{\IfFileExists{mdugm.sty}
 	{\usepackage[mathscr]{eucal}
 	\usepackage[urw-garamond]{mathdesign}}
+	{\message{Package mdugm.sty was not found. You can download this from CTAN.}}}
 	{\message{Package mathdesign.sty was not found.}}}
 	{\message{Package eucal.sty was not found.}}
 \else
@@ -69,6 +74,14 @@
 		{\usepackage[sc]{mathpazo}
 		\linespread{1.05}}
 		{\message{Package mathpazo.sty was not found.}}
+	\else
+		\if@libertine
+			\IfFileExists{libertine.sty}
+			{\usepackage{libertine}
+			\renewcommand*\familydefault{\sfdefault}
+			\usepackage{mathastext}}
+			{\message{Package libertine.sty was not found.}}
+		\fi
 	\fi
 \fi
 
