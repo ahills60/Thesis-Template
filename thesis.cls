@@ -30,6 +30,9 @@
 \newcommand*{\department}[1]{\gdef\@department{#1}}
 \newcommand*{\university}[1]{\gdef\@university{#1}}
 \newcommand*{\dedication}[1]{\gdef\@dedication{#1}}
+\dedication{}%
+\global\let\@dedication\@empty
+
 \DeclareOption*{
 \PassOptionsToClass{\CurrentOption}{report}}
 
@@ -356,13 +359,17 @@
 	\newpage
 	\mbox{}
 	\thispagestyle{empty}
-	\clearpage
-	\thispagestyle{empty}
-	\vspace*{\stretch{1}}
-	\begin{center}
-		\huge{\@dedication{}}
-	\end{center}
-	\vspace*{\stretch{2}}
+	\ifx\@dedication\@empty
+		\relax
+	\else
+		\clearpage
+		\thispagestyle{empty}
+		\vspace*{\stretch{1}}
+		\begin{center}
+			\huge{\@dedication}
+		\end{center}
+		\vspace*{\stretch{2}}
+	\fi
 	\cleardoublepage
 	\pagenumbering{roman} \setcounter{page}{1}
 	\if@lineno
