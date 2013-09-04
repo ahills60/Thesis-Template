@@ -19,6 +19,9 @@
 \newif\if@libertine
 \@libertinefalse
 \DeclareOption{libertine}{\@libertinetrue}
+\newif\if@lineno
+\@linenofalse
+\DeclareOption{lineno}{\@linenotrue}
 % \makeatother
 \newcommand*{\department}[1]{\gdef\@department{#1}}
 \newcommand*{\university}[1]{\gdef\@university{#1}}
@@ -83,6 +86,12 @@
 			{\message{Package libertine.sty was not found.}}
 		\fi
 	\fi
+\fi
+
+\if@lineno
+	\IfFileExists{lineno.sty}
+	{\usepackage[pagewise]{lineno}}
+	{\message{Package lineno.sty was not found.}}
 \fi
 
 % \makeatother
@@ -331,7 +340,7 @@
 		\vspace*{\stretch{2}}
 	\end{titlepage}
 }
-\def\startpreamble
+\newcommand{\startpreamble}[1]
 	{\pagenumbering{alph}
 	\setcounter{page}{0}
 	\maketitle
@@ -347,6 +356,9 @@
 	\vspace*{\stretch{2}}
 	\cleardoublepage
 	\pagenumbering{roman} \setcounter{page}{1}
+	\if@lineno
+		\linenumbers
+	\fi
 	}
 \def\stoppreamble
 	{\cleardoublepage
