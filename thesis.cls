@@ -22,6 +22,10 @@
 \newif\if@lineno
 \@linenofalse
 \DeclareOption{lineno}{\@linenotrue}
+\newif\if@authoryear
+\@authoryearfalse
+\DeclareOption{authoryear}{\@authoryeartrue}
+
 % \makeatother
 \newcommand*{\department}[1]{\gdef\@department{#1}}
 \newcommand*{\university}[1]{\gdef\@university{#1}}
@@ -36,8 +40,13 @@
 \RequirePackage[a4paper,inner=4cm,outer=3cm,top=4cm,bottom=3.5cm,pdftex]{geometry}
 \RequirePackage{fixltx2e}
 
+
 \bibliographystyle{plainnaturl}
-\RequirePackage[square,numbers,comma,sort&compress]{natbib}
+\if@authoryear
+	\usepackage[authoryear,comma,sort&compress]{natbib}
+\else
+	\usepackage[square,numbers,comma,sort&compress]{natbib}
+\fi
 \RequirePackage{url}
 
 \RequirePackage[english]{babel}
