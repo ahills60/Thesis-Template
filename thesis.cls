@@ -259,6 +259,7 @@
 \makeatother
 
 \pagestyle{fancy}
+\fancyfoot{}
 \renewcommand{\chaptermark}[1]{\markboth{\chaptername\ \thechapter.\ #1}{}}
 \renewcommand{\sectionmark}[1]{\markright{\thesection.\ #1}}
 \fancyhead[RO,LE]{\bfseries\thepage}
