@@ -4,7 +4,7 @@ Thesis Template
 A LaTeX thesis template that was tweaked over a few years and condensed to a class file. A BibTeX bibliography class file is also provided
 
 Instructions
-============
+------------
 
 On creating a new LaTeX document, start the document with ```\documentclass{thesis}```. Options for the document are specified below. You should also define the macros ```\title{}```, ```\author{}```, ```\department{}``` and ```\university{}``` in the header of your document. The thesis class also provides an optional ```\dedication{}``` macro.
 
@@ -29,7 +29,7 @@ The thesis class imports the `natbib` package thus giving the option of paragrap
 The class also provides shortcuts for declaring real numbers with ```\R{exponent_here}```, expected values with ```\E{value}```, Normal distributions with ```\N{mean}{variance}``` and probabilities with ```\p{value}``` or ```\p[value]{posterior}```.
 
 Optional document parameters
-============================
+----------------------------
 
 The ```\documentclass[options]{thesis}``` supports a number of `options` including the following:
 
@@ -44,7 +44,7 @@ The ```\documentclass[options]{thesis}``` supports a number of `options` includi
 
 
 Bibliography
-============
+------------
 
 This class uses the `natbib` bibliography package and, specifically, the `plainnaturl.bst` bibliography stylesheet. The custom stylesheet displays initials and surname for all authors and removes URL and DOI information from bibliography entries. URL fields are preserved for miscellaneous/Internet bibliographic entries.
 
