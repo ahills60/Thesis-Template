@@ -41,6 +41,7 @@ The ```\documentclass[options]{thesis}``` supports a number of `options` includi
 * `libertine` to use the Libertine sans serif font.
 * `lineno` to print line numbers throughout the document.
 * `authoryear` to use author-year citations rather than the numbering standard.
+* `draftfigs` to use placeholders for figures for faster compilation (with the `draft` argument for `graphicx`).
 
 
 Bibliography
