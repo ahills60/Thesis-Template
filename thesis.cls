@@ -25,6 +25,9 @@
 \newif\if@authoryear
 \@authoryearfalse
 \DeclareOption{authoryear}{\@authoryeartrue}
+\newif\if@draftfigs
+\@draftfigsfalse
+\DeclareOption{draftfigs}{\@draftfigstrue}
 
 % \makeatother
 \newcommand*{\department}[1]{\gdef\@department{#1}}
@@ -115,7 +118,11 @@
 
 \RequirePackage{sectsty}
 
-\RequirePackage{graphicx}
+\if@draftfigs
+	\RequirePackage[draft]{graphicx}
+\else
+	\RequirePackage{graphicx}
+\fi
 \RequirePackage{subcaption}
 
 \RequirePackage{longtable}
