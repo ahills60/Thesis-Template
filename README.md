@@ -43,6 +43,75 @@ The ```\documentclass[options]{thesis}``` supports a number of `options` includi
 * `authoryear` to use author-year citations rather than the numbering standard.
 * `draftfigs` to use placeholders for figures for faster compilation (with the `draft` argument for `graphicx`).
 
+Nomenclature support
+--------------------
+
+Nomenclature is supported with the `nomencl` package ([see CTAN](http://www.ctan.org/tex-archive/macros/latex/contrib/nomencl)). New nomenclature can be defined as follows:
+
+```latex
+\nomenclature{symbol}{description}
+```
+
+To compile the list of nomenclature, open up a terminal/command prompt session and run:
+
+```bash
+makeindex MyThesis.nlo -s nomencl.ist -o MyThesis.nls
+```
+
+If the thesis file is something other than `MyThesis`, then `MyThesis` should be replaced in the above with the name of the master thesis file.
+
+Nomenclature will be displayed wherever the macro ```\printnomenclature``` is called. The width of the first column can be defined by including an optional width (e.g. ```\printnomenclature[2cm]```). The nomenclature section contains the following preamble:
+> A list of the variables and notation used in this thesis is defined below. The definitions and conventions set here will be observed throughout unless otherwise stated.
+
+Should acronyms be detected (by detecting the presence of `filename.acr`), then the preamble will be appended with:
+> For a list of acronyms, please consult page~\pageref{gl:acronym}
+
+Acronym support
+---------------
+
+Acronyms are supported with the `glossaries` package ([see CTAN](http://www.ctan.org/tex-archive/macros/latex/contrib/glossaries)). New acronyms can be defined as follows:
+
+```latex
+\newacronym{label}{acronym}{lower case, singular expansion of the acronym}
+```
+
+Within the document, the commands `\gls{label}`, `\Gls{label}`, `\glspl{label}` and `\Glspl{label}` can be used in place of abbreviated forms. These commands correspond with the lowercase singular, sentence case singular, lowercase plural and sentence case plural forms, respectively. LaTeX will automatically expand the acronym on the first instance and use the abbreviated form thereafter.
+
+To compile the list of acronyms, open up a terminal/command prompt session and run:
+
+```bash
+makeglossaries MyThesis
+```
+
+If the thesis file is something other than `MyThesis`, then `MyThesis` should be replaced in the above with the name of the master thesis file.
+
+It may be desirable to override the default behaviour in which case, the following commands can be used.
+
+### Acronym form ###
+* `\acrshort{label}`: lowercase, singular acronym form.
+* `\Acrshort{label}`: sentence case, singular acronym form.
+* `\acrshortpl{label}`: lowercase, plural acronym form.
+* `\Acrshortpl{label}`: sentence case, plural acronym form.
+
+### Expanded form ###
+* `\acrlong{label}`: lowercase, singular expanded form.
+* `\Acrlong{label}`: sentence case, singular expanded form.
+* `\acrlongpl{label}`: lowercase, plural expanded form.
+* `\Acrlongpl{label}`: sentence case, plural expanded form.
+
+### Expanded and acronym form ###
+* `\acrfull{label}`: lowercase, singular expanded form proceeded by acronym in parentheses.
+* `\Acrfull{label}`: sentence case, singular expanded form proceeded by acronym in parentheses.
+* `\acrfullpl{label}`: lowercase, plural expanded form proceeded by acronym in parentheses.
+* `\Acrfullpl{label}`: sentence case, plural expanded form proceeded by acronym in parentheses.
+
+Words are made plural by simply appending "s" to the end of an acronym or its expanded form. Some words do not conform to this generalisation and may require the long plural form to be redefined using:
+
+```latex
+\newacronym[longplural={lower case, plural expansion of the acronym}]{label}{acronym}{lower case, singular expansion of the acronym}
+```
+
+*Note: `\newacronym` definitions need to be defined prior to usage. I recommend placing such definitions within a separate file (e.g. `Acronyms.tex`) and using `\input{Acronyms}` just after opening the `document` environment.*
 
 Bibliography
 ------------
