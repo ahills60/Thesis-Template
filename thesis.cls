@@ -228,7 +228,13 @@
 \RequirePackage{ifpdf}
 \RequirePackage{nomencl}
 
-\def\nompreamble{\addcontentsline{toc}{chapter}{Nomenclature}A list of the variables and notation used in this thesis is defined below. The definitions and conventions set here will be observed throughout unless otherwise stated. For a list of acronyms, please consult page~\pageref{gl:acronym}.\\}
+\makenomenclature
+
+\IfFileExists{\jobname.acr}{
+	\def\nompreamble{\addcontentsline{toc}{chapter}{Nomenclature}A list of the variables and notation used in this thesis is defined below. The definitions and conventions set here will be observed throughout unless otherwise stated. For a list of acronyms, please consult page~\pageref{gl:acronym}.\\}
+}{
+	\def\nompreamble{\addcontentsline{toc}{chapter}{Nomenclature}A list of the variables and notation used in this thesis is defined below. The definitions and conventions set here will be observed throughout unless otherwise stated.\\}
+}
 
 \RequirePackage[breaklinks]{hyperref}
 \makeatletter
