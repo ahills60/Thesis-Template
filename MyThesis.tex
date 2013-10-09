@@ -11,6 +11,10 @@
 \begin{document}
 	\startpreamble
 	
+	\nomenclature{$\top$}{Matrix transpose}
+	\newacronym[longplural={Gaussian processes}]{gp}{GP}{Gaussian process}
+	\newacronym{mse}{MSE}{mean squared error}
+	
 	\section*{Acknowledgements}
 	I'd like to thank the following people:
 	
@@ -22,10 +26,15 @@
 	\listoffigures
 	\listoftables
 	
+	\printnomenclature[2cm]
+	
 	\stoppreamble
 	
 	\chapter{This is a test}
 	Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+	
+	\Glspl{gp} can be used for regression and classification. The \gls{mse} statistic is used to measure the error and assess model performance. \Gls{mse} can measure the \gls{gp} model performance.
+
 	
 	Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 	
@@ -33,6 +42,8 @@
 	\citet{Knuth92} Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 	
 	Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum \citep{Knuth92}.
+	
+	\printglossaries
 	
 	\bibliography{MyThesis.bib}
 \end{document}
