@@ -19,6 +19,21 @@
 \newif\if@libertine
 \@libertinefalse
 \DeclareOption{libertine}{\@libertinetrue}
+\newif\if@helvetica
+\@helveticafalse
+\DeclareOption{helvetica}{\@helveticatrue}
+\newif\if@times
+\@timesfalse
+\DeclareOption{times}{\@timestrue}
+\newif\if@sourcesanspro
+\@sourcesansprofalse
+\DeclareOption{sourcesanspro}{\@sourcesansprotrue}
+\newif\if@didot
+\@didotfalse
+\DeclareOption{didot}{\@didottrue}
+\newif\if@latinmodern
+\@latinmodernfalse
+\DeclareOption{latinmodern}{\@latinmoderntrue}
 \newif\if@lineno
 \@linenofalse
 \DeclareOption{lineno}{\@linenotrue}
@@ -99,6 +114,42 @@
 			\renewcommand*\familydefault{\sfdefault}
 			\usepackage{mathastext}}
 			{\message{Package libertine.sty was not found.}}
+		\else
+			\if@helvetica
+				\IfFileExists{helvet.sty}
+				{\usepackage[scaled]{helvet}
+				\renewcommand*\familydefault{\sfdefault}
+				\usepackage{mathastext}}
+				{\message{Package helvet.sty was not found.}}
+			\else
+				\if@times
+					\IfFileExists{mathptmx.sty}
+					{\usepackage{mathptmx}}
+					{\message{Package mathptmx.sty was not found.}}
+				\else
+					\if@sourcesanspro
+						\IfFileExists{sourcesanspro.sty}
+						{\usepackage[default]{sourcesanspro}
+						\usepackage{mathastext}}
+						{\message{Package sourcesanspro.sty was not found.}}
+					\else
+						\if@didot
+							\IfFileExists{gfsdidot.sty}
+							{\usepackage{gfsdidot}
+							\usepackage{mathastext}}
+							{\message{Package gfsdidot.sty was not found.}}
+						\else
+							\if@latinmodern
+								\IfFileExists{lmodern.sty}
+								{\usepackage{lmodern}
+								\renewcommand*\familydefault{\sfdefault}
+								\usepackage{mathastext}}
+								{\message{Package lmodern.sty was not found.}}
+							\fi
+						\fi
+					\fi
+				\fi
+			\fi
 		\fi
 	\fi
 \fi

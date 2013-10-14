@@ -1,10 +1,8 @@
-Thesis Template
-===============
+# Thesis Template
 
 A LaTeX thesis template that was tweaked over a few years and condensed to a class file. A BibTeX bibliography class file is also provided
 
-Instructions
-------------
+## Instructions
 
 On creating a new LaTeX document, start the document with ```\documentclass{thesis}```. Options for the document are specified below. You should also define the macros ```\title{}```, ```\author{}```, ```\department{}``` and ```\university{}``` in the header of your document. The thesis class also provides an optional ```\dedication{}``` macro.
 
@@ -28,23 +26,30 @@ The thesis class imports the `natbib` package thus giving the option of paragrap
 
 The class also provides shortcuts for declaring real numbers with ```\R{exponent_here}```, expected values with ```\E{value}```, Normal distributions with ```\N{mean}{variance}``` and probabilities with ```\p{value}``` or ```\p[value]{posterior}```.
 
-Optional document parameters
-----------------------------
+## Optional document parameters
 
 The ```\documentclass[options]{thesis}``` supports a number of `options` including the following:
 
-* `a4paper` for A4 paper mode.
 * `11pt` for 11pt size text.
-* `twoside` for double sided printing (this will adjust the margins accordingly).
-* `palatino` to use the Palatino serif font.
-* `garamond` to use the URW Garamond serif font (note that this is not installed by default and is now considered a non-free font).
-* `libertine` to use the Libertine sans serif font.
-* `lineno` to print line numbers throughout the document.
+* `a4paper` for A4 paper mode.
 * `authoryear` to use author-year citations rather than the numbering standard.
 * `draftfigs` to use placeholders for figures for faster compilation (with the `draft` argument for `graphicx`).
+* `lineno` to print line numbers throughout the document.
+* `twoside` for double sided printing (this will adjust the margins accordingly).
 
-Nomenclature support
---------------------
+### Font support
+The following fonts are supported and can be enabled using the corresponding `documentclass` option:
+
+* `didot` to use the [GFS Didot](http://www.tug.dk/FontCatalogue/gfsdidot/) serif font.
+* `garamond` to use the [URW Garamond](http://www.tug.dk/FontCatalogue/garamond/) serif font (note that this is not installed by default and is now considered a non-free font).
+* `helvetica` to use the [Helvetica](http://www.tug.dk/FontCatalogue/helvetica/) sans serif font.
+* `latinmodern` to use the [Latin Modern Sans](http://www.tug.dk/FontCatalogue/lmodernsans/) sans serif font.
+* `libertine` to use the [Linux Libertine](http://www.tug.dk/FontCatalogue/libertine/) serif font.
+* `palatino` to use the [Palatino](http://www.tug.dk/FontCatalogue/palatino/) serif font.
+* `sourcesanspro` to use the [Source Sans Pro](http://www.tug.dk/FontCatalogue/sourcesanspro/) sans serif font.
+* `times` to use the [Times](http://www.tug.dk/FontCatalogue/times/) serif font.
+
+## Nomenclature support
 
 Nomenclature is supported with the `nomencl` package ([see CTAN](http://www.ctan.org/tex-archive/macros/latex/contrib/nomencl)). New nomenclature can be defined as follows:
 
@@ -66,8 +71,7 @@ Nomenclature will be displayed wherever the macro ```\printnomenclature``` is ca
 Should acronyms be detected (by detecting the presence of `filename.acr`), then the preamble will be appended with:
 > For a list of acronyms, please consult page~\pageref{gl:acronym}
 
-Acronym support
----------------
+## Acronym support
 
 Acronyms are supported with the `glossaries` package ([see CTAN](http://www.ctan.org/tex-archive/macros/latex/contrib/glossaries)). New acronyms can be defined as follows:
 
@@ -113,8 +117,7 @@ Words are made plural by simply appending "s" to the end of an acronym or its ex
 
 *Note: `\newacronym` definitions need to be defined prior to usage. I recommend placing such definitions within a separate file (e.g. `Acronyms.tex`) and using `\input{Acronyms}` just after opening the `document` environment.*
 
-Bibliography
-------------
+## Bibliography
 
 This class uses the `natbib` bibliography package and, specifically, the `plainnaturl.bst` bibliography stylesheet. The custom stylesheet displays initials and surname for all authors and removes URL and DOI information from bibliography entries. URL fields are preserved for miscellaneous/Internet bibliographic entries.
 
