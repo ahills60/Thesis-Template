@@ -35,6 +35,7 @@ The ```\documentclass[options]{thesis}``` supports a number of `options` includi
 * `authoryear` to use author-year citations rather than the numbering standard.
 * `draftfigs` to use placeholders for figures for faster compilation (with the `draft` argument for `graphicx`).
 * `lineno` to print line numbers throughout the document.
+* `smallcaptions` to use ```\small``` font size for captions declared with ```\caption{}```.
 * `twoside` for double sided printing (this will adjust the margins accordingly).
 
 ### Font support

@@ -2,10 +2,10 @@
 %
 % Used for writing nice looking theses.
 %
-% 2013-July-25 Andrew Hills (a.hills (at) sheffield.ac.uk)
+% 2013-November-04 Andrew Hills (a.hills (at) sheffield.ac.uk)
 
 % Standard class structure
-\ProvidesClass{thesis}[2013/07/25 version 1.00 Thesis class]
+\ProvidesClass{thesis}[2013/11/04 version 0.2.2 Thesis class]
 \NeedsTeXFormat{LaTeX2e}
 
 % Read all declarations and pass onto article class
@@ -43,6 +43,9 @@
 \newif\if@draftfigs
 \@draftfigsfalse
 \DeclareOption{draftfigs}{\@draftfigstrue}
+\newif\if@smallcaptions
+\@smallcaptionsfalse
+\DeclareOption{smallcaptions}{\@smallcaptionstrue}
 
 % \makeatother
 \newcommand*{\department}[1]{\gdef\@department{#1}}
@@ -239,6 +242,11 @@
 \def\fnum@algorithm{\textbf{Algorithm}\nobreakspace\textbf{\thealgorithm}}
 \def\fnum@table{\textbf{\tablename}\nobreakspace\textbf{\thetable}}
 \def\fnum@figure{\textbf{\figurename}\nobreakspace\textbf{\thefigure}}
+
+% Change the default captions font
+\if@smallcaptions
+	\def\captionfont{\small}
+\fi
 
 \renewcommand\chapter{\if@openright\cleardoublepage\else\clearpage\fi
                     \thispagestyle{plain}%
