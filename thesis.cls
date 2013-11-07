@@ -2,10 +2,10 @@
 %
 % Used for writing nice looking theses.
 %
-% 2013-November-04 Andrew Hills (a.hills (at) sheffield.ac.uk)
+% 2013-November-07 Andrew Hills (a.hills (at) sheffield.ac.uk)
 
 % Standard class structure
-\ProvidesClass{thesis}[2013/11/04 version 0.2.2 Thesis class]
+\ProvidesClass{thesis}[2013/11/07 version 0.2.3 Thesis class]
 \NeedsTeXFormat{LaTeX2e}
 
 % Read all declarations and pass onto article class
