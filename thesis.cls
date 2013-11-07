@@ -219,7 +219,7 @@
 % List of algorithms
 \makeatletter
 \newcommand\listofalgorithms{%
-    \ifx@twocolumn\@empty
+    \if@twocolumn\@empty
       \@restonecoltrue\onecolumn
     \else
       \@restonecolfalse
