@@ -1,6 +1,6 @@
 # Thesis Template
 
-A LaTeX thesis template that was tweaked over a few years and condensed to a class file. A BibTeX bibliography class file is also provided
+A LaTeX thesis template that was tweaked over a few years and condensed to a class file. A BibTeX bibliography class file is also provided.
 
 ## Instructions
 
@@ -52,7 +52,7 @@ The following fonts are supported and can be enabled using the corresponding `do
 
 ## Nomenclature support
 
-Nomenclature is supported with the `nomencl` package ([see CTAN](http://www.ctan.org/tex-archive/macros/latex/contrib/nomencl)). New nomenclature can be defined as follows:
+Nomenclature is supported with the `nomencl` package ([see CTAN](http://www.ctan.org/pkg/nomencl)). New nomenclature can be defined as follows:
 
 ```latex
 \nomenclature{symbol}{description}
@@ -74,7 +74,7 @@ Should acronyms be detected (by detecting the presence of `filename.acr`), then 
 
 ## Acronym support
 
-Acronyms are supported with the `glossaries` package ([see CTAN](http://www.ctan.org/tex-archive/macros/latex/contrib/glossaries)). New acronyms can be defined as follows:
+Acronyms are supported with the `glossaries` package ([see CTAN](http://www.ctan.org/pkg/glossaries)). New acronyms can be defined as follows:
 
 ```latex
 \newacronym{label}{acronym}{lower case, singular expansion of the acronym}
