@@ -118,6 +118,30 @@ Words are made plural by simply appending "s" to the end of an acronym or its ex
 
 *Note: `\newacronym` definitions need to be defined prior to usage. I recommend placing such definitions within a separate file (e.g. `Acronyms.tex`) and using `\input{Acronyms}` just after opening the `document` environment.*
 
+## Multi-page floats
+
+Floats such as figures and algorithms can span multiple pages with the included `caption` package (for tables, I recommend using the `longtable` environment described below). When wanting to declare the continuation of an algorithm, simply call `\ContinuedFloat` after opening the environment. This should then be followed by the caption macro (which should automatically use the same counter as the previous float).
+
+```latex
+\begin{algorithm}[ht]
+    \caption{\textbf{My algorithm.}}
+    \label{alg:AlgorithmExample}
+    \begin{description}
+        \item [Step 1.] This is the first step.
+        \item [Step 2.] This is the second step.
+    \end{description}
+\end{algorithm}
+
+\begin{algorithm}[ht]
+    \ContinuedFloat
+    \caption{\textbf{My algorithm (continued).}}
+    \begin{description}
+        \item [Step 3.] This is the third step.
+        \item [Step 4.] This is the fourth step.
+    \end{description}
+\end{algorithm}
+```
+
 ## Bibliography
 
 This class uses the `natbib` bibliography package and, specifically, the `plainnaturl.bst` bibliography stylesheet. The custom stylesheet displays initials and surname for all authors and removes URL and DOI information from bibliography entries. URL fields are preserved for miscellaneous/Internet bibliographic entries.

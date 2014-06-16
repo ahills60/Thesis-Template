@@ -177,6 +177,7 @@
 \else
 	\RequirePackage{graphicx}
 \fi
+\RequirePackage{caption}
 \RequirePackage{subcaption}
 
 \RequirePackage{longtable}
