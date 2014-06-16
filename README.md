@@ -142,6 +142,94 @@ Floats such as figures and algorithms can span multiple pages with the included 
 \end{algorithm}
 ```
 
+## Sub-captions
+
+Sub-captions are supported via the `subcaption` package ([see CTAN](http://www.ctan.org/pkg/subcaption)). To use sub-captions in a figure, declare a `figure` environment as normal and then use the `subfigure` environment to create subb figures:
+```latex
+\begin{figure}[ht]
+    \centering
+        \begin{subfigure}[b]{0.45\textwidth}
+            \centering
+            \includegraphics[scale=0.4]{Image1.png}
+            \caption{Image 1 caption
+            \label{fig:Image1Label}
+        \end{subfigure}
+        \quad
+        \begin{subfigure}[b]{0.45\textwidth}
+            \centering
+            \includegraphics[scale=0.4]{Image2.png}
+            \caption{Image 2 caption}
+            \label{fig:Image2Label}
+        \end{subfigure}
+        \\
+        \begin{subfigure}[b]{0.45\textwidth}
+            \centering
+            \includegraphics[scale=0.4]{Image3.png}
+            \caption{Image 3 caption}
+            \label{fig:Image3Label}
+        \end{subfigure}
+        \quad
+        \begin{subfigure}[b]{0.45\textwidth}
+            \centering
+            \includegraphics[scale=0.4]{Image4.png}
+            \caption{Image 4 caption}
+            \label{fig:Image4Label}
+        \end{subfigure}
+    \caption{\textbf{Main figure caption.}}
+    \label{fig:MainFigureLabel}
+\end{figure}
+```
+
+## Tables
+
+Several packages have been added improving or enhancing the formatting of tables. These are described in the following subsections.
+
+### Tables spanning multiple pages
+Tables spanning multiple pages are supported with the `longtable` package ([see CTAN](http://www.ctan.org/pkg/longtable)). Simply declare the environment and add any necessary table headers and footers:
+
+```latex
+\begin{longtable}{|p{5cm}|p{7.5cm}|}
+    \caption{\textbf{Table caption.} This caption is displayed on the first page.}\label{tab:TableCaption}\\
+    \hline
+    \textbf{Column Header 1} & \textbf{Column Header 2}\\\hline
+    \endfirsthead
+    \caption[]{\textbf{Table caption (continued).} This caption is displayed on subsequent pages.}\\
+    \hline
+    \textbf{Column Header 1} & \textbf{Column Header 2}\\\hline
+    \endhead
+    \multicolumn{2}{r}{\emph{Continued on next page}}
+    \endfoot
+    \endlastfoot
+    R1C1 & R1C2.\\ \hline
+    R2C1 & R2C2.\\ \hline
+\end{longtable}
+```
+
+### Landscape tables
+
+Landscape-oriented tables are supported using the `rotating` package ([see CTAN](http://www.ctan.org/pkg/rotating)). To rotate a table, encapsulate your caption, label and tabular environment within a `sidewaystable` environment:
+
+```latex
+\begin{sidewaystable}
+    \caption{\textbf{Table caption.}}
+    \label{tab:TableLabel}
+    \centering
+    \begin{tabular}{|r|r|r|r|r|r|r|}
+        \hline
+            & \textbf{Column 2} & \textbf{Column 3} & \textbf{Column 4} & \textbf{Column 5} & \textbf{Column 6} & \textbf{Column 7}\\ \hline
+        \textbf{Row 1} & R1C2 & R1C3 & R1C4 & R1C5 & R1C6 & R1C7 \\ \hline
+        \textbf{Row 2} & R2C2 & R2C3 & R2C4 & R2C5 & R2C6 & R2C7 \\ \hline
+    \end{tabular}
+\end{sidewaystable}
+```
+
+### Table row colours
+
+Rows of a table can be given a background colour using the `\rowcolour[color]{intensity}` command, provided by the `color` and `colortbl` packages (see CTAN for [color](http://www.ctan.org/pkg/color) and [colortbl](http://www.ctan.org/pkg/colortbl) packages). Simply append the command at the end of a table row for the row's background to change. In the following example, the background of the row will be grey at 90% intensity:
+```latex
+$5.00$ & $-1.79$ \\ \hline \rowcolor[gray]{0.90}
+```
+
 ## Bibliography
 
 This class uses the `natbib` bibliography package and, specifically, the `plainnaturl.bst` bibliography stylesheet. The custom stylesheet displays initials and surname for all authors and removes URL and DOI information from bibliography entries. URL fields are preserved for miscellaneous/Internet bibliographic entries.
