@@ -230,6 +230,26 @@ Rows of a table can be given a background colour using the `\rowcolour[color]{in
 $5.00$ & $-1.79$ \\ \hline \rowcolor[gray]{0.90}
 ```
 
+## Appendices
+
+The thesis class provides support for multiple appendix items. Appendices will create new chapters that are labelled alphabetically and each appendix item will appear in the table of contents. To declare the start of the appendix section, use the macro `\appendix`. New chapters from this point will form different appendix items.
+
+```latex
+\chapter{Before the appendix}
+Lorem ipsum dolor sit amet...
+
+\appendix
+\chapter{Appendix item 1} % Appears as "Appendix A"
+Lorem ipsum dolor sit amet...
+
+\chapter{Appendix item 2} % Appears as "Appendix B"
+Lorem ipsum dolor sit amet...
+
+\printglossaries % Appears as a new chapter called "Acronyms"
+
+\bibliography{bibfile} % Appears as a new chapter called "Bibliography"
+```
+
 ## Bibliography
 
 This class uses the `natbib` bibliography package and, specifically, the `plainnaturl.bst` bibliography stylesheet. The custom stylesheet displays initials and surname for all authors and removes URL and DOI information from bibliography entries. URL fields are preserved for miscellaneous/Internet bibliographic entries.
