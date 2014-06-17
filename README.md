@@ -2,6 +2,27 @@
 
 A LaTeX thesis template that was tweaked over a few years and condensed to a class file. A BibTeX bibliography class file is also provided.
 
+### Table of Contents
+
+- [Instructions](#instructions)
+- [Optional document parameters](#optional-document-parameters)
+    - [Font support](#font-support)
+- [Nomenclature support](#nomenclature-support)
+- [Acronym support](#acronym-support)
+    - [Acronym form](#acronym-form)
+    - [Expanded form](#expanded-form)
+    - [Expanded and acronym form](#expanded-and-acronym-form)
+- [Multi-page floats](#multi-page-floats)
+- [Sub-captions](#sub-captions)
+- [Algorithms](#algorithms)
+- [Tables](#tables)
+    - [Tables spanning multiple pages](#tables-spanning-multiple-pages)
+    - [Landscape tables](#landscape-tables)
+    - [Table row colours](#table-row-colours)
+- [Appendices](#appendices)
+- [Bibliography](#bibliography)
+- [Index](#index)
+
 ## Instructions
 
 On creating a new LaTeX document, start the document with ```\documentclass{thesis}```. Options for the document are specified below. You should also define the macros ```\title{}```, ```\author{}```, ```\department{}``` and ```\university{}``` in the header of your document. The thesis class also provides an optional ```\dedication{}``` macro.
@@ -69,6 +90,8 @@ Acronyms are supported with the `glossaries` package ([see CTAN](http://www.ctan
 ```
 
 Within the document, the commands `\gls{label}`, `\Gls{label}`, `\glspl{label}` and `\Glspl{label}` can be used in place of abbreviated forms. These commands correspond with the lowercase singular, sentence case singular, lowercase plural and sentence case plural forms, respectively. LaTeX will automatically expand the acronym on the first instance and use the abbreviated form thereafter.
+
+Using the macro `\printglossaries` will create a new chapter and write appendix items after they have been compiled. 
 
 To compile the list of acronyms, open up a terminal/command prompt session and run:
 
@@ -190,6 +213,7 @@ The thesis class also uses the `listings` package which provides support for wri
 Several packages have been added improving or enhancing the formatting of tables. These are described in the following subsections.
 
 ### Tables spanning multiple pages
+
 Tables spanning multiple pages are supported with the `longtable` package ([see CTAN](http://www.ctan.org/pkg/longtable)). Simply declare the environment and add any necessary table headers and footers:
 
 ```latex
