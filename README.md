@@ -235,3 +235,14 @@ $5.00$ & $-1.79$ \\ \hline \rowcolor[gray]{0.90}
 This class uses the `natbib` bibliography package and, specifically, the `plainnaturl.bst` bibliography stylesheet. The custom stylesheet displays initials and surname for all authors and removes URL and DOI information from bibliography entries. URL fields are preserved for miscellaneous/Internet bibliographic entries.
 
 Note that the package prefers bibliographic information to be added as a separate `bib` file rather than appended to the bottom of a document.
+
+## Index
+
+The class file also has support for creating index items via the `makeidx` package ([see CTAN](http://www.ctan.org/pkg/makeidx)). To create append the index to the end of the document and include it within the Table of Contents, use:
+
+```latex
+\clearpage
+\phantomsection
+\addcontentsline{toc}{chapter}{Index}
+\printindex
+```
