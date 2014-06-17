@@ -10,18 +10,6 @@ When writing the main body of your document, the macro ```\startpreamble``` can 
 
 When declaring an end to the preamble, call the macro ```\stoppreamble``` to change page numbering back to Arabic numerals.
 
-The thesis class creates a new float for algorithms that can be called with:
-
-```latex
-\begin{algorithm}[ht]
-  \caption{The caption to your algorithm}
-  \label{alg:algorithm_label}
-  % Content goes here
-\end{algorithm}
-```
-
-A list of algorithms can generated using the ```\listofalgorithms``` macro.
-
 The thesis class imports the `natbib` package thus giving the option of paragraph citations (```\citep{}```) and text citations (```\citet{}```).
 
 The class also provides shortcuts for declaring real numbers with ```\R{exponent_here}```, expected values with ```\E{value}```, Normal distributions with ```\N{mean}{variance}``` and probabilities with ```\p{value}``` or ```\p[value]{posterior}```.
@@ -179,6 +167,23 @@ Sub-captions are supported via the `subcaption` package ([see CTAN](http://www.c
     \label{fig:MainFigureLabel}
 \end{figure}
 ```
+
+## Algorithms
+
+The thesis class creates a new float for algorithms that can be called with:
+
+```latex
+\begin{algorithm}[ht]
+  \caption{The caption to your algorithm}
+  \label{alg:algorithm_label}
+  % Content goes here
+\end{algorithm}
+```
+
+A list of algorithms can generated using the ```\listofalgorithms``` macro. This can be used in the same way as `\listoffigures` and `\listoftables`.
+
+The thesis class also uses the `listings` package which provides support for writing source code in any of the supported programming languages or a user-defined language ([see CTAN](http://www.ctan.org/pkg/listings)).
+
 
 ## Tables
 
