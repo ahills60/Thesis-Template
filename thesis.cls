@@ -5,7 +5,7 @@
 % 2013-November-07 Andrew Hills (a.hills (at) sheffield.ac.uk)
 
 % Standard class structure
-\ProvidesClass{thesis}[2013/11/07 version 0.2.3 Thesis class]
+\ProvidesClass{thesis}[2014/07/07 version 0.2.4 Thesis class]
 \NeedsTeXFormat{LaTeX2e}
 
 % Read all declarations and pass onto article class
