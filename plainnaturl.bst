@@ -70,6 +70,7 @@ ENTRY
     title
     type
     url
+    version
     volume
     year
   }
@@ -492,6 +493,17 @@ FUNCTION {format.edition}
   if$
 }
 
+FUNCTION {format.version}
+{ version empty$
+    { "" }
+    { output.state mid.sentence =
+        { "version " version * }
+        { "Version " version * }
+      if$
+    }
+  if$
+}
+
 INTEGERS { multiresult }
 
 FUNCTION {multi.page.check}
@@ -881,6 +893,7 @@ FUNCTION {manual}
   organization address new.block.checkb
   organization output
   address output
+  format.version output
   format.edition output
   format.date output
   new.block
