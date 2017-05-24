@@ -46,6 +46,9 @@
 \newif\if@smallcaptions
 \@smallcaptionsfalse
 \DeclareOption{smallcaptions}{\@smallcaptionstrue}
+\newif\if@texglossaries
+\@texglossariesfalse
+\DeclareOption{texglossaries}{\@texglossariestrue}
 
 % \makeatother
 \newcommand*{\department}[1]{\gdef\@department{#1}}
@@ -308,8 +311,12 @@
 \renewcommand*{\glsautoprefix}{gl:}
 \makeatletter
 	\renewcommand*{\@@glossarysecstar}{*}
+\if@texglossaries
+    \makenoidxglossaries
+\else
+    \makeglossaries
+\fi
 \makeatother
-\makeglossaries
 
 \makeatletter
 

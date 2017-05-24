@@ -12,6 +12,7 @@ A LaTeX thesis template that was tweaked over a few years and condensed to a cla
     - [Acronym form](#acronym-form)
     - [Expanded form](#expanded-form)
     - [Expanded and acronym form](#expanded-and-acronym-form)
+    - [Using TeX-based glossary construction](#using-tex-based-glossary-construction)
 - [Multi-page floats](#multi-page-floats)
 - [Sub-captions](#sub-captions)
 - [Algorithms](#algorithms)
@@ -46,6 +47,7 @@ The ```\documentclass[options]{thesis}``` supports a number of `options` includi
 * `lineno` to print line numbers throughout the document.
 * `smallcaptions` to use ```\small``` font size for captions declared with ```\caption{}```.
 * `twoside` for double sided printing (this will adjust the margins accordingly).
+* `texglossaries` for using TeX-based construction of glossaries instead of `makeindex`. 
 
 ### Font support
 The following fonts are supported and can be enabled using the corresponding `documentclass` option:
@@ -127,7 +129,15 @@ Words are made plural by simply appending "s" to the end of an acronym or its ex
 \newacronym[longplural={lower case, plural expansion of the acronym}]{label}{acronym}{lower case, singular expansion of the acronym}
 ```
 
-*Note: `\newacronym` definitions need to be defined prior to usage. I recommend placing such definitions within a separate file (e.g. `Acronyms.tex`) and using `\input{Acronyms}` just after opening the `document` environment.*
+*Note: `\newacronym` definitions need to be defined prior to usage. I recommend placing such definitions within a separate file (e.g. `Acronyms.tex`) and using `\input{Acronyms}` just before opening the `document` environment.*
+
+### Using TeX-based glossary construction
+
+The above acronym compilation instructions required the use of terminal/command prompt and calling the `makeglossaries` command. On some systems, this requirement is undesirable or impossible to execute. By declaring `texglossaries` within the document declaration options, the template will switch to using the TeX-based glossary compiler. 
+
+To create a new chapter and write appendix items after they have been compiled, replace the macro `\printglossaries` with `\printnoidxglossaries`. 
+
+*Note: Calling `makeglossaries` is generally more efficient to use and provides options for languages other than English. I recommend that you use `makeglossaries` wherever possible.*
 
 ## Multi-page floats
 
