@@ -93,7 +93,7 @@ Acronyms are supported with the `glossaries` package ([see CTAN](http://www.ctan
 
 Within the document, the commands `\gls{label}`, `\Gls{label}`, `\glspl{label}` and `\Glspl{label}` can be used in place of abbreviated forms. These commands correspond with the lowercase singular, sentence case singular, lowercase plural and sentence case plural forms, respectively. LaTeX will automatically expand the acronym on the first instance and use the abbreviated form thereafter.
 
-Using the macro `\printglossaries` will create a new chapter and write appendix items after they have been compiled. 
+Using the macro `\printgloss` will create a new chapter and write appendix items after they have been compiled. This macro will call either the `\printglossaries` or `\printnoidxglossaries` macro, depending on whether the `texglossaries` document option has been declared ([see Using TeX-based glossary construction](#using-tex-based-glossary-construction)).
 
 To compile the list of acronyms, open up a terminal/command prompt session and run:
 
@@ -135,7 +135,7 @@ Words are made plural by simply appending "s" to the end of an acronym or its ex
 
 The above acronym compilation instructions required the use of terminal/command prompt and calling the `makeglossaries` command. On some systems, this requirement is undesirable or impossible to execute. By declaring `texglossaries` within the document declaration options, the template will switch to using the TeX-based glossary compiler. 
 
-To create a new chapter and write appendix items after they have been compiled, replace the macro `\printglossaries` with `\printnoidxglossaries`. 
+To create a new chapter and write appendix items after they have been compiled, simply call `\printgloss` as before. 
 
 *Note: Calling `makeglossaries` is generally more efficient to use and provides options for languages other than English. I recommend that you use `makeglossaries` wherever possible.*
 

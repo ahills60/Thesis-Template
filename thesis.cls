@@ -313,8 +313,10 @@
 	\renewcommand*{\@@glossarysecstar}{*}
 \if@texglossaries
     \makenoidxglossaries
+    \def\printgloss{\printnoidxglossaries}
 \else
     \makeglossaries
+    \def\printgloss{\printglossaries}
 \fi
 \makeatother
 
