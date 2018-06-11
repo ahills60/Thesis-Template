@@ -1,1 +1,8 @@
+title: Thesis Template
+description: A LaTeX thesis class template
+google_analytics: 
+show_downloads: true
 theme: jekyll-theme-slate
+
+gems:
+- jekyll-mentions
