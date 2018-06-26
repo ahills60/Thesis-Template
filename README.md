@@ -48,7 +48,7 @@ The ```\documentclass[options]{thesis}``` supports a number of `options` includi
 * `smallcaptions` to use ```\small``` font size for captions declared with ```\caption{}```.
 * `twoside` for double sided printing (this will adjust the margins accordingly).
 * `texglossaries` for using TeX-based construction of glossaries instead of `makeindex`.
-* `unsrt` to order bibliography by appearance in text
+* `unsrt` to order bibliography by appearance in text.
 
 ### Font support
 The following fonts are supported and can be enabled using the corresponding `documentclass` option:
