@@ -49,6 +49,9 @@
 \newif\if@texglossaries
 \@texglossariesfalse
 \DeclareOption{texglossaries}{\@texglossariestrue}
+\newif\if@unsrt
+\@unsrtfalse
+\DeclareOption{unsrt}{\@unsrttrue}
 
 % \makeatother
 \newcommand*{\department}[1]{\gdef\@department{#1}}
@@ -65,14 +68,18 @@
 \LoadClass{report}
 
 \RequirePackage[a4paper,inner=4cm,outer=3cm,top=4cm,bottom=3.5cm,pdftex]{geometry}
-\RequirePackage{fixltx2e}
 
 
-\bibliographystyle{plainnaturl}
-\if@authoryear
-	\usepackage[authoryear,comma,sort&compress]{natbib}
+\if@unsrt
+    \bibliographystyle{plainnaturlunsrt}
 \else
-	\usepackage[square,numbers,comma,sort&compress]{natbib}
+    \bibliographystyle{plainnaturl}
+\fi
+
+\if@authoryear
+    \usepackage[authoryear,comma,sort&compress]{natbib}
+\else
+    \usepackage[square,numbers,comma,sort&compress]{natbib}
 \fi
 \RequirePackage{url}
 
@@ -99,71 +106,71 @@
 \floatname{algorithm}{Algorithm}
 % \makeatletter
 \if@garamond
-	\IfFileExists{eucal.sty}
-	{\IfFileExists{mathdesign.sty}
-	{\IfFileExists{mdugm.sty}
-	{\usepackage[mathscr]{eucal}
-	\usepackage[urw-garamond]{mathdesign}}
-	{\message{Package mdugm.sty was not found. You can download this from CTAN.}}}
-	{\message{Package mathdesign.sty was not found.}}}
-	{\message{Package eucal.sty was not found.}}
+    \IfFileExists{eucal.sty}
+    {\IfFileExists{mathdesign.sty}
+    {\IfFileExists{mdugm.sty}
+    {\usepackage[mathscr]{eucal}
+    \usepackage[urw-garamond]{mathdesign}}
+    {\message{Package mdugm.sty was not found. You can download this from CTAN.}}}
+    {\message{Package mathdesign.sty was not found.}}}
+    {\message{Package eucal.sty was not found.}}
 \else
-	\if@palatino
-		\IfFileExists{mathpazo.sty}
-		{\usepackage[sc]{mathpazo}
-		\linespread{1.05}}
-		{\message{Package mathpazo.sty was not found.}}
-	\else
-		\if@libertine
-			\IfFileExists{libertine.sty}
-			{\usepackage{libertine}
-			\renewcommand*\familydefault{\sfdefault}
-			\usepackage{mathastext}}
-			{\message{Package libertine.sty was not found.}}
-		\else
-			\if@helvetica
-				\IfFileExists{helvet.sty}
-				{\usepackage[scaled]{helvet}
-				\renewcommand*\familydefault{\sfdefault}
-				\usepackage{mathastext}}
-				{\message{Package helvet.sty was not found.}}
-			\else
-				\if@times
-					\IfFileExists{mathptmx.sty}
-					{\usepackage{mathptmx}}
-					{\message{Package mathptmx.sty was not found.}}
-				\else
-					\if@sourcesanspro
-						\IfFileExists{sourcesanspro.sty}
-						{\usepackage[default]{sourcesanspro}
-						\usepackage{mathastext}}
-						{\message{Package sourcesanspro.sty was not found.}}
-					\else
-						\if@didot
-							\IfFileExists{gfsdidot.sty}
-							{\usepackage{gfsdidot}
-							\usepackage{mathastext}}
-							{\message{Package gfsdidot.sty was not found.}}
-						\else
-							\if@latinmodern
-								\IfFileExists{lmodern.sty}
-								{\usepackage{lmodern}
-								\renewcommand*\familydefault{\sfdefault}
-								\usepackage{mathastext}}
-								{\message{Package lmodern.sty was not found.}}
-							\fi
-						\fi
-					\fi
-				\fi
-			\fi
-		\fi
-	\fi
+    \if@palatino
+        \IfFileExists{mathpazo.sty}
+        {\usepackage[sc]{mathpazo}
+        \linespread{1.05}}
+        {\message{Package mathpazo.sty was not found.}}
+    \else
+        \if@libertine
+            \IfFileExists{libertine.sty}
+            {\usepackage{libertine}
+            \renewcommand*\familydefault{\sfdefault}
+            \usepackage{mathastext}}
+            {\message{Package libertine.sty was not found.}}
+        \else
+            \if@helvetica
+                \IfFileExists{helvet.sty}
+                {\usepackage[scaled]{helvet}
+                \renewcommand*\familydefault{\sfdefault}
+                \usepackage{mathastext}}
+                {\message{Package helvet.sty was not found.}}
+            \else
+                \if@times
+                    \IfFileExists{mathptmx.sty}
+                    {\usepackage{mathptmx}}
+                    {\message{Package mathptmx.sty was not found.}}
+                \else
+                    \if@sourcesanspro
+                        \IfFileExists{sourcesanspro.sty}
+                        {\usepackage[default]{sourcesanspro}
+                        \usepackage{mathastext}}
+                        {\message{Package sourcesanspro.sty was not found.}}
+                    \else
+                        \if@didot
+                            \IfFileExists{gfsdidot.sty}
+                            {\usepackage{gfsdidot}
+                            \usepackage{mathastext}}
+                            {\message{Package gfsdidot.sty was not found.}}
+                        \else
+                            \if@latinmodern
+                                \IfFileExists{lmodern.sty}
+                                {\usepackage{lmodern}
+                                \renewcommand*\familydefault{\sfdefault}
+                                \usepackage{mathastext}}
+                                {\message{Package lmodern.sty was not found.}}
+                            \fi
+                        \fi
+                    \fi
+                \fi
+            \fi
+        \fi
+    \fi
 \fi
 
 \if@lineno
-	\IfFileExists{lineno.sty}
-	{\usepackage[pagewise]{lineno}}
-	{\message{Package lineno.sty was not found.}}
+    \IfFileExists{lineno.sty}
+    {\usepackage[pagewise]{lineno}}
+    {\message{Package lineno.sty was not found.}}
 \fi
 
 % \makeatother
@@ -176,9 +183,9 @@
 \RequirePackage{sectsty}
 
 \if@draftfigs
-	\RequirePackage[draft]{graphicx}
+    \RequirePackage[draft]{graphicx}
 \else
-	\RequirePackage{graphicx}
+    \RequirePackage{graphicx}
 \fi
 \RequirePackage{caption}
 \RequirePackage{subcaption}
@@ -249,7 +256,7 @@
 
 % Change the default captions font
 \if@smallcaptions
-	\def\captionfont{\small}
+    \def\captionfont{\small}
 \fi
 
 \renewcommand\chapter{\if@openright\cleardoublepage\else\clearpage\fi
@@ -268,7 +275,7 @@
                     \chaptermark{#1}%
                     \addtocontents{lof}{\protect\addvspace{10\p@}}%
                     \addtocontents{lot}{\protect\addvspace{10\p@}}%
-					\addtocontents{loa}{\protect\addvspace{10\p@}}% Algorithm added
+                    \addtocontents{loa}{\protect\addvspace{10\p@}}% Algorithm added
                     \if@twocolumn
                       \@topnewpage[\@makechapterhead{#2}]%
                     \else
@@ -294,9 +301,9 @@
 \makenomenclature
 
 \IfFileExists{\jobname.acr}{
-	\def\nompreamble{\addcontentsline{toc}{chapter}{Nomenclature}A list of the variables and notation used in this thesis is defined below. The definitions and conventions set here will be observed throughout unless otherwise stated. For a list of acronyms, please consult page~\pageref{gl:acronym}.\\}
+    \def\nompreamble{\addcontentsline{toc}{chapter}{Nomenclature}A list of the variables and notation used in this thesis is defined below. The definitions and conventions set here will be observed throughout unless otherwise stated. For a list of acronyms, please consult page~\pageref{gl:acronym}.\\}
 }{
-	\def\nompreamble{\addcontentsline{toc}{chapter}{Nomenclature}A list of the variables and notation used in this thesis is defined below. The definitions and conventions set here will be observed throughout unless otherwise stated.\\}
+    \def\nompreamble{\addcontentsline{toc}{chapter}{Nomenclature}A list of the variables and notation used in this thesis is defined below. The definitions and conventions set here will be observed throughout unless otherwise stated.\\}
 }
 
 \RequirePackage[breaklinks]{hyperref}
@@ -310,7 +317,7 @@
 \RequirePackage[acronym,nomain,toc,numberedsection=autolabel]{glossaries}
 \renewcommand*{\glsautoprefix}{gl:}
 \makeatletter
-	\renewcommand*{\@@glossarysecstar}{*}
+    \renewcommand*{\@@glossarysecstar}{*}
 \if@texglossaries
     \makenoidxglossaries
     \def\printgloss{\printnoidxglossaries}
@@ -352,10 +359,10 @@
 % Clear Header Style on the last empty odd page
 \makeatletter
 \def\cleardoublepage{\clearpage\if@twoside \ifodd\c@page\else
-	\hbox{}
-	\thispagestyle{empty}
-	\newpage
-	\if@twocolumn\hbox{}\newpage\fi\fi\fi}
+    \hbox{}
+    \thispagestyle{empty}
+    \newpage
+    \if@twocolumn\hbox{}\newpage\fi\fi\fi}
 
 % Redefine chapters
 \def\@chapter[#1]#2{\ifnum \c@secnumdepth >\m@ne
@@ -369,7 +376,7 @@
                     \chaptermark{#1}%
                     \addtocontents{lof}{\protect\addvspace{10\p@}}%
                     \addtocontents{lot}{\protect\addvspace{10\p@}}%
-					\addtocontents{loa}{\protect\addvspace{10\p@}}%
+                    \addtocontents{loa}{\protect\addvspace{10\p@}}%
                     \if@twocolumn
                       \@topnewpage[\@makechapterhead{#2}]%
                     \else
@@ -378,89 +385,89 @@
                     \fi}
 % Section:
 \def\@sect#1#2#3#4#5#6[#7]#8{%
-					  \ifnum #2>\c@secnumdepth
-					    \let\@svsec\@empty
-					  \else
-					    \refstepcounter{#1}%
-					    \protected@edef\@svsec{\@seccntformat{#1}\relax}%
-					  \fi
-					  \@tempskipa #5\relax
-					  \ifdim \@tempskipa>\z@
-					    \begingroup
-					      #6{%
-					        \@hangfrom{\hskip #3\relax\@svsec}%
-					          \interlinepenalty \@M #8\@@par}%
-					    \endgroup
-					    \csname #1mark\endcsname{#7}%
-					    \addcontentsline{toc}{#1}{%
-					      \ifnum #2>\c@secnumdepth \else
-					        \protect\numberline{\csname the#1\endcsname}%
-					      \fi
-					      #8}%
-					  \else
-					    \def\@svsechd{%
-					      #6{\hskip #3\relax
-					      \@svsec #8}%
-					      \csname #1mark\endcsname{#7}%
-					      \addcontentsline{toc}{#1}{%
-					        \ifnum #2>\c@secnumdepth \else
-					          \protect\numberline{\csname the#1\endcsname}%
-					        \fi
-					        #8}}%
-					  \fi
-					  \@xsect{#5}}
+                      \ifnum #2>\c@secnumdepth
+                        \let\@svsec\@empty
+                      \else
+                        \refstepcounter{#1}%
+                        \protected@edef\@svsec{\@seccntformat{#1}\relax}%
+                      \fi
+                      \@tempskipa #5\relax
+                      \ifdim \@tempskipa>\z@
+                        \begingroup
+                          #6{%
+                            \@hangfrom{\hskip #3\relax\@svsec}%
+                              \interlinepenalty \@M #8\@@par}%
+                        \endgroup
+                        \csname #1mark\endcsname{#7}%
+                        \addcontentsline{toc}{#1}{%
+                          \ifnum #2>\c@secnumdepth \else
+                            \protect\numberline{\csname the#1\endcsname}%
+                          \fi
+                          #8}%
+                      \else
+                        \def\@svsechd{%
+                          #6{\hskip #3\relax
+                          \@svsec #8}%
+                          \csname #1mark\endcsname{#7}%
+                          \addcontentsline{toc}{#1}{%
+                            \ifnum #2>\c@secnumdepth \else
+                              \protect\numberline{\csname the#1\endcsname}%
+                            \fi
+                            #8}}%
+                      \fi
+                      \@xsect{#5}}
 \renewcommand{\maketitle}{
-	\begin{titlepage}
-		% \setcounter{page}{2}
-		%\vspace*{\stretch{1}}
-		\begin{center}
-			\Huge \bf \@title
-		\end{center}
-		\vspace*{\stretch{1}}
-		\begin{center}
-			A thesis submitted to \@university{} for the degree of Doctor of Philosophy
-		\end{center}
-		\vspace*{\stretch{1}}
-		\begin{center}
-			\Large \bf \@author
-		\end{center}
-		\vspace*{\stretch{1}}
-		\begin{center}
-			\@department
-		\end{center}
-		\vspace*{\stretch{1}}
-		\begin{center}
-			\monthyear\today
-		\end{center}
-		\vspace*{\stretch{2}}
-	\end{titlepage}
+    \begin{titlepage}
+        % \setcounter{page}{2}
+        %\vspace*{\stretch{1}}
+        \begin{center}
+            \Huge \bf \@title
+        \end{center}
+        \vspace*{\stretch{1}}
+        \begin{center}
+            A thesis submitted to \@university{} for the degree of Doctor of Philosophy
+        \end{center}
+        \vspace*{\stretch{1}}
+        \begin{center}
+            \Large \bf \@author
+        \end{center}
+        \vspace*{\stretch{1}}
+        \begin{center}
+            \@department
+        \end{center}
+        \vspace*{\stretch{1}}
+        \begin{center}
+            \monthyear\today
+        \end{center}
+        \vspace*{\stretch{2}}
+    \end{titlepage}
 }
 \newcommand{\startpreamble}[1]
-	{\pagenumbering{alph}
-	\setcounter{page}{0}
-	\maketitle
-	\newpage
-	\mbox{}
-	\thispagestyle{empty}
-	\ifx\@dedication\@empty
-		\relax
-	\else
-		\clearpage
-		\thispagestyle{empty}
-		\vspace*{\stretch{1}}
-		\begin{center}
-			\huge{\@dedication}
-		\end{center}
-		\vspace*{\stretch{2}}
-	\fi
-	\cleardoublepage
-	\pagenumbering{roman} \setcounter{page}{1}
-	\if@lineno
-		\linenumbers
-	\fi
-	}
+    {\pagenumbering{alph}
+    \setcounter{page}{0}
+    \maketitle
+    \newpage
+    \mbox{}
+    \thispagestyle{empty}
+    \ifx\@dedication\@empty
+        \relax
+    \else
+        \clearpage
+        \thispagestyle{empty}
+        \vspace*{\stretch{1}}
+        \begin{center}
+            \huge{\@dedication}
+        \end{center}
+        \vspace*{\stretch{2}}
+    \fi
+    \cleardoublepage
+    \pagenumbering{roman} \setcounter{page}{1}
+    \if@lineno
+        \linenumbers
+    \fi
+    }
 \def\stoppreamble
-	{\cleardoublepage
-	\pagenumbering{arabic}
-	\setcounter{page}{1}}
+    {\cleardoublepage
+    \pagenumbering{arabic}
+    \setcounter{page}{1}}
 \makeatother
