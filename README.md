@@ -47,7 +47,8 @@ The ```\documentclass[options]{thesis}``` supports a number of `options` includi
 * `lineno` to print line numbers throughout the document.
 * `smallcaptions` to use ```\small``` font size for captions declared with ```\caption{}```.
 * `twoside` for double sided printing (this will adjust the margins accordingly).
-* `texglossaries` for using TeX-based construction of glossaries instead of `makeindex`. 
+* `texglossaries` for using TeX-based construction of glossaries instead of `makeindex`.
+* `unsrt` to order bibliography by appearance in text
 
 ### Font support
 The following fonts are supported and can be enabled using the corresponding `documentclass` option:
@@ -133,9 +134,9 @@ Words are made plural by simply appending "s" to the end of an acronym or its ex
 
 ### Using TeX-based glossary construction
 
-The above acronym compilation instructions required the use of terminal/command prompt and calling the `makeglossaries` command. On some systems, this requirement is undesirable or impossible to execute. By declaring `texglossaries` within the document declaration options, the template will switch to using the TeX-based glossary compiler. 
+The above acronym compilation instructions required the use of terminal/command prompt and calling the `makeglossaries` command. On some systems, this requirement is undesirable or impossible to execute. By declaring `texglossaries` within the document declaration options, the template will switch to using the TeX-based glossary compiler.
 
-To create a new chapter and write appendix items after they have been compiled, simply call `\printgloss` as before. 
+To create a new chapter and write appendix items after they have been compiled, simply call `\printgloss` as before.
 
 *Note: Calling `makeglossaries` is generally more efficient to use and provides options for languages other than English. I recommend that you use `makeglossaries` wherever possible.*
 
