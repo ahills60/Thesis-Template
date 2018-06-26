@@ -49,6 +49,9 @@
 \newif\if@texglossaries
 \@texglossariesfalse
 \DeclareOption{texglossaries}{\@texglossariestrue}
+\newif\if@unsrt
+\@unsrtfalse
+\DeclareOption{unsrt}{\@unsrttrue}
 
 % \makeatother
 \newcommand*{\department}[1]{\gdef\@department{#1}}
@@ -67,7 +70,12 @@
 \RequirePackage[a4paper,inner=4cm,outer=3cm,top=4cm,bottom=3.5cm,pdftex]{geometry}
 
 
-\bibliographystyle{plainnaturl}
+\if@unsrt
+    \bibliographystyle{plainnaturlunsrt}
+\else
+    \bibliographystyle{plainnaturl}
+\fi
+
 \if@authoryear
 	\usepackage[authoryear,comma,sort&compress]{natbib}
 \else
