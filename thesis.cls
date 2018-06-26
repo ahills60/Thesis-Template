@@ -65,7 +65,6 @@
 \LoadClass{report}
 
 \RequirePackage[a4paper,inner=4cm,outer=3cm,top=4cm,bottom=3.5cm,pdftex]{geometry}
-\RequirePackage{fixltx2e}
 
 
 \bibliographystyle{plainnaturl}
